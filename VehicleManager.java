@@ -1,4 +1,4 @@
-public class Vehicle{
+abstract class Vehicle{
     private String plate;
     private String model;
     private int year;
@@ -43,7 +43,7 @@ public class Vehicle{
     public abstract double calculateDaily(int dias);
 }
 
-public class Car extends Vehicle{
+class Car extends Vehicle{
     private int numberDoors;
 
     public Car(String plate, String model, int year, int numberDoors){
@@ -52,17 +52,17 @@ public class Car extends Vehicle{
     }
 
     @Override
-    public calculateDaily(int dias){
-        return (dias * 100.0) + (numberDoors * 20.0);
+    public double calculateDaily(int days){
+        return (days * 100.0) + (numberDoors * 20.0);
     }
 
     @Override
-    public abstract void displayDetails(){
+    public void displayDetails(){
         System.out.println(
-            "Carro - Placa: " + getPlate() +
-            ", Modelo: " + getModel() +
-            ", Ano: " + getYear() +
-            ", Portas: " + numberDoors
+            "Car - Plate: " + getPlate() +
+            ", Model: " + getModel() +
+            ", Year: " + getYear() +
+            ", Doors: " + numberDoors
        );
     }
 
@@ -71,5 +71,36 @@ public class Car extends Vehicle{
     }
     public void setNumberDoor(int numberDoors){
         this.numberDoors = numberDoors;
+    }
+}
+
+class Motorcycle extends Vehicle{
+    private int cylinder;
+
+    public Motorcycle(String plate, String model, int year, int cylinder){
+        super(plate, model, year);
+        this.cylinder = cylinder;
+    }
+
+    @Override
+    public double calculateDaily(int days){
+        return (days * 50.0) + (cylinder * 0.10);
+    }
+
+    @Override
+    public void displayDetails(){
+        System.out.println(
+            "Motorcycle - Plate: " + getPlate() +
+            ", Model: " + getModel() +
+            ", Year: " + getYear() +
+            ", Cylinder Capacity: " + cylinder
+       );
+    }
+
+    public int getCylinder(){
+        return cylinder;
+    }
+    public void setCylinder(int cylinder){
+        this.cylinder = cylinder;
     }
 }
