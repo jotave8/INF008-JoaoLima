@@ -52,6 +52,11 @@ class Car extends Vehicle{
         super(plate, model, year);
         this.numberDoors = numberDoors;
     }
+ 
+    public Car(String plate, String model){
+        super(plate, model, 2025);
+        this.numberDoors = 4;
+    }
 
     @Override
     public double calculateDaily(int days){
@@ -82,6 +87,11 @@ class Motorcycle extends Vehicle{
     public Motorcycle(String plate, String model, int year, int cylinder){
         super(plate, model, year);
         this.cylinder = cylinder;
+    }
+
+    public Motorcycle(String plate, String model){
+        super(plate, model, 2025);
+        this.cylinder = 160;
     }
 
     @Override
