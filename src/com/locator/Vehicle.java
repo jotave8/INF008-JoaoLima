@@ -1,8 +1,10 @@
-abstract class Vehicle{
+package com.locator;
+
+class Vehicle{
     private String plate;
     private String model;
     private int year;
-    private static int totalVehicles = 0;
+    private static int totalVehicles;
 
     public Vehicle(String plate, String model, int year){
         this.plate = plate;
@@ -39,6 +41,11 @@ abstract class Vehicle{
         return totalVehicles;
     }
 
-    public abstract void displayDetails(); 
-    public float calculateRental(int dias);
+    public void displayDetails(){
+        System.out.println(plate + " - " + model + " - " + year);
+    } 
+
+    public float calculateRental(int days){
+        return 0.0f;
+    }
 }

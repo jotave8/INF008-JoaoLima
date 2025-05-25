@@ -1,32 +1,34 @@
+package com.locator;
+
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 
 class RentalCompany{
     private String name;
-    private ArrayList<Vehicle> registeredVehicle;
+    private HashMap<String, Vehicle> vehicles = new HashMap<String,Vehicle>();
 
 
     public RentalCompany(String name){
         this.name = name;
-        this.registeredVehicle = new ArrayList<>();
     }
 
-    public void registerVehicle (Vehicle v){
-        registeredVehicle.add(v);
+    public void registerVehicle (Vehicle vehicle){
+        vehicles.put(vehicle.getPlate(), vehicle);
     }
 
     public void listVehicle(){
-        for (Vehicle vehicle : registeredVehicle){
-            vehicle.displayDetails();
+        Iterator<Vehicle> i = vehicles.values().iterator();
+        while (i.hasNext()){
+            i.next().displayDetails();
+            System.out.println("");
         }
     }
 
-    public double calculateTotalRentalValue(String plate, int days){
-        for (Vehicle vehicle : registeredVehicle){
-            if (vehicle.getPlate().equals(plate)){
-                return vehicle.calculateDaily(days);
-            }
+    public float calculateTotalRentalValue(String plate, int days){
+        if (vehicles.containsKey(plate)){
+            return vehicles.get(plate).calculateRental(days);
         }
-        System.out.println("Veículo com placa " + plate + " não encontrado!");
-        return -1.0;
+        return 0.0f;
     }
 }
