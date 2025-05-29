@@ -30,3 +30,14 @@ abstract class Event{
 
     public abstract String Certificate(Participant participant);
 }
+
+class Lecture extends Event{
+    public Lecture (String title, String location, String description, int capacity, LocalDate date){
+        super(title, location, description, capacity, date);
+    }
+
+    @Override
+    public String Certificate(Participant participant){
+        return "Lecture Certificate"
+    }
+}
