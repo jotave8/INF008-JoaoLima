@@ -84,6 +84,9 @@ class Lecture extends Event{
 
     @Override
     public boolean registerParticipant(Participant participant){
-        
+        if (participant instanceof Student){
+            return super.registerParticipant(participant);
+        }
+        return false
     }
 }
