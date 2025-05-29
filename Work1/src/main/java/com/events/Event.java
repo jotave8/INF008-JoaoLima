@@ -78,7 +78,7 @@ class Lecture extends Event{
                "=================================\n" +
                "Lecture Topic: " + getTitle() + "\n" +
                "Participant: " + getName() + "\n" +
-               "Date: " + getDate() +"\n" +
+               "Date: " + formattedDate +"\n" +
                "=================================\n"
     }
 
