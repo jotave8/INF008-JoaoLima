@@ -19,4 +19,14 @@ abstract class Event{
         this.capacity = capacity;
         this.date = date;
     }
+
+    public boolean registerParticipant (Participant participant){
+        if(participants.size() < capacity){
+            participants.add(participant);
+            return true;
+        }
+        return false
+    }
+
+    public abstract String Certificate(Participant participant);
 }
