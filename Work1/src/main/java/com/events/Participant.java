@@ -1,5 +1,5 @@
 package com.events;
 
-class Students{
+class Participant{
     
 }
