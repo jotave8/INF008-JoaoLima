@@ -81,4 +81,9 @@ class Lecture extends Event{
                "Date: " + getDate() +"\n" +
                "=================================\n"
     }
+
+    @Override
+    public boolean registerParticipant(Participant participant){
+        
+    }
 }
