@@ -3,6 +3,7 @@ package com.events;
 import java.util.Iterator;
 import java.util.ArrayList;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 abstract class Event{
     private String title;
@@ -17,6 +18,38 @@ abstract class Event{
         this.location = location;
         this.description = description;
         this.capacity = capacity;
+        this.date = date;
+    }
+
+    public String getTitle(){
+        return title;
+    }
+    public String getLocation(){
+        return location;
+    }
+    public String getDescription(){
+        return description;
+    }
+    public int getCapacity(){
+        return capacity;
+    }
+    public LocalDate getDate(){
+        return date;
+    }
+
+    public void setTitle(String title){
+        this.title = title;
+    }
+    public void setLocation(String location){
+        this.location = location;
+    }
+    public void setDescription(String description){
+        this.description = description;
+    }
+    public void setCapacity(int capacity){
+        this.capacity = capacity;
+    } 
+    public void setDaTe(LocalDate date){
         this.date = date;
     }
 
@@ -38,6 +71,14 @@ class Lecture extends Event{
 
     @Override
     public String Certificate(Participant participant){
-        return "Lecture Certificate"
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        String formattedDate = getDate.format(formatter);
+        return "=================================\n" +
+               "           CERTIFICATE           \n" +
+               "=================================\n" +
+               "Lecture Topic: " + getTitle() + "\n" +
+               "Participant: " + getName() + "\n" +
+               "Date: " + getDate() +"\n" +
+               "=================================\n"
     }
 }
